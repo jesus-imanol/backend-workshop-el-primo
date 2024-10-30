@@ -16,5 +16,5 @@ appointmentRoutes.put("/:id", appointmentController.updateAppointment.bind(appoi
 appointmentRoutes.patch("/:id", appointmentController.updateAppointmentPartial.bind(appointmentController));
 appointmentRoutes.delete("/:id", appointmentController.deleteAppointment.bind(appointmentController));
 appointmentRoutes.get('/:clientId', appointmentController.getAppointmentByClientId.bind(appointmentController))
-appointmentRoutes.patch("/:id/status", appointmentController.updateAppointmentStatus.bind(appointmentController));
+appointmentRoutes.put("/:id/status", appointmentController.updateAppointmentStatus.bind(appointmentController));
 
