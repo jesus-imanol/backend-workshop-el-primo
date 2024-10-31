@@ -13,3 +13,4 @@ messageRoutes.get('/:id', messageController.getMessageById.bind(messageControlle
 messageRoutes.post('/', messageController.createMessage.bind(messageController));
 messageRoutes.put('/:id', messageController.updateMessage.bind(messageController));
 messageRoutes.delete('/:id', messageController.deleteMessage.bind(messageController));
+messageRoutes.get('/appointment/:id', messageController.getMessagesByAppointmentId.bind(messageController));

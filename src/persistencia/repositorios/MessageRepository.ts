@@ -30,6 +30,10 @@ export class MessageRepository {
         }
         return null;
     }
+    async getMessagesByAppointmentId(appointmentId: number): Promise<Message[] | null> {
+        const [rows]: any = await this.connection.execute('SELECT * FROM Mensaje WHERE ID_Cita = ?', [appointmentId]);
+        return rows as Message[];
+    }
 
     async createMessage(data: any): Promise<Message | null> {
         const [result]: any = await this.connection.execute(

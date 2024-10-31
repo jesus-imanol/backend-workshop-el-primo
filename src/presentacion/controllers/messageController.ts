@@ -20,6 +20,11 @@ export class MessageController {
         const newMessage = await this.messageService.createMessage(data);
         res.status(200).send({ status: 'OK', data: newMessage });
     }
+    async getMessagesByAppointmentId(req: Request, res: Response) {
+        const appointmentId = parseInt(req.params.id);
+        const messages = await this.messageService.getMessagesByAppointmentId(appointmentId);
+        res.status(200).send({ status: 'OK', data: messages });
+    }
 
     async updateMessage(req: Request, res: Response) {
         const id = parseInt(req.params.id);

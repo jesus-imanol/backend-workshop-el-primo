@@ -11,6 +11,9 @@ export class MessageService {
     async getMessageById(id: number): Promise<Message | null> {
         return this.messageRepository.getMessageById(id);
     }
+    async getMessagesByAppointmentId(appointmentId: number): Promise<Message[] | null> {
+        return this.messageRepository.getMessagesByAppointmentId(appointmentId);
+    }
 
     async createMessage(data: any): Promise<Message | null> {
         return this.messageRepository.createMessage(data);
