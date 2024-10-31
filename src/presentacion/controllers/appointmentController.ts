@@ -55,6 +55,8 @@ export class AppointmentController {
     }
     async getAppointmentByClientId(req: Request, res:Response) {
         const clientId = parseInt(req.params.id);
+        console.log("Controller", clientId);
+        
         const appointment = await this.appointmentService.getAppointmentsByClientId(clientId);
         if (appointment) {
             res.status(200).send({ status: "OK", data: appointment });

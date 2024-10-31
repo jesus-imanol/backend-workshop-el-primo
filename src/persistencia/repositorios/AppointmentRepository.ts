@@ -145,6 +145,8 @@ export class AppointmentRepository {
     }
     async getAppointmentsByClientId(userId: number): Promise<Appointment[] | null> {
         try {
+            console.log(userId);
+            
             const [rows] = await this.connection.execute(
                 `SELECT * FROM Cita WHERE ID_Cliente = ? OR ID_Mecanico = ?`,[userId, userId]
             );
