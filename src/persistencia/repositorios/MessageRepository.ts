@@ -26,7 +26,7 @@ export class MessageRepository {
         const [rows]: any = await this.connection.execute('SELECT * FROM Mensaje WHERE ID_Mensaje = ?', [id]);
         if (rows.length) {
             const row = rows[0];
-            return new Message(row.ID_Mensaje, row.ID_Cita, row.Contenido);
+            return new Message(row.ID_Mensaje, row.ID_Cita, row.Contenido,row.Fecha);
         }
         return null;
     }
@@ -36,8 +36,9 @@ export class MessageRepository {
             'INSERT INTO Mensaje (ID_Cita, Contenido, Fecha) VALUES (?, ?, ?)',
             [data.appointmentId, data.content, data.date]
         );
-        return new Message(result.insertId, data.appointmentId, data.content);
+        return new Message(result.insertId, data.appointmentId, data.content, data.fecha);
     }
+    
 
     async updateMessage(id: number, data: any): Promise<Message | null> {
         await this.connection.execute(
